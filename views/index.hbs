@@ -1,3 +1,9 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Place App</h1>
+<p>Welcome to Place App</p>
 <p>Click <b><a href="/places/new">here</a></b> to create a new place</p>
+
+<h1>List of all places</h1>
+<p>{{#each place}}
+{{ this.name}}
+{{ this.type}}
+{{/each}}</p>

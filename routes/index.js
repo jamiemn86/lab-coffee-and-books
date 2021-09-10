@@ -5,7 +5,14 @@ const router = new Router();
 const Place = require('../models/place');
 
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Hello World!' });
+  Place.find({})
+    .then((place) => {
+      console.log(place);
+      res.render('index', { place });
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 // GET to render the form to create a new place
@@ -19,7 +26,7 @@ router.post('/', (req, res, next) => {
     name: req.body.name,
     type: req.body.type
   });
-
+  console.log(newPlace);
   newPlace.save((error) => {
     if (error) {
       next(error);
