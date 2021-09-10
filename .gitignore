@@ -37,3 +37,9 @@ node_modules
 
 # next.js build output
 .next
+
+# package-lock.json
+package-lock.json
+
+# server.js
+server.js

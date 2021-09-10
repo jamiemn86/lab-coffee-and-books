@@ -1,8 +1,16 @@
-const placeSchema = new Schema({
+const mongoose = require('mongoose');
+
+const placeSchema = new mongoose.Schema(
+  {
     name: { type: String, required: true },
     description: {
-        type: String,
-        enum : ['coffee_shop','bookstore']
+      type: String,
+      enum: ['coffee_shop', 'bookstore']
     }
   },
-  { timestamps: true });
+  { timestamps: true }
+);
+
+const Place = mongoose.model('Place', placeSchema);
+
+module.exports = Place;
